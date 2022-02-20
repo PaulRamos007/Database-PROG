@@ -1,0 +1,32 @@
+﻿@model  DBProgramming_Class_2.Models.Customer
+
+@using (Html.BeginForm("AddCustomer", "Customer", FormMethod.Post))
+{
+    @Html.HiddenFor(c => c.CustomerID);
+
+    <div class="row">
+        <div class="col-md-6">
+            @Html.TextBoxFor(c => c.Name, new { @class = "form-control", @placeholder = "Name..." })
+        </div>
+        <div class="col-md-6">
+            @Html.TextBoxFor(c => c.Address, new { @class = "form-control", @placeholder = "Address..." })
+        </div>
+        <div class="col-md-6">
+            @Html.TextBoxFor(c => c.City, new { @class = "form-control", @placeholder = "City..." })
+        </div>
+        <div class="col-md-6">
+            @Html.TextBoxFor(c => c.State, new { @class = "form-control", @placeholder = "State..." })
+        </div>
+        <div class="col-md-6">
+            @Html.TextBoxFor(c => c.ZipCode, new { @class = "form-control", @placeholder = "ZipCode..." })
+        </div>
+    </div>
+
+    <div class="row">
+        <div class="col-md-12">
+            <input type="submit" value="Submit" />
+        </div>
+    </div>
+
+}
+

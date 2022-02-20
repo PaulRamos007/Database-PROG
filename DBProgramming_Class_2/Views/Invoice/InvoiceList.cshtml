@@ -1,0 +1,56 @@
+﻿@model List<DBProgramming_Class_2.Models.Invoice>
+
+@{
+    ViewBag.Title = "InvoiceList";
+}
+
+<div class="row">
+    <div class="col-md-12">
+        <h2>List of Invoice</h2>
+    </div>
+</div>
+
+<div class="col-md-12">
+    @Html.ActionLink("Add New Invoice", "AddEditInvoice", "Invoice", null, null)
+</div>
+
+
+<div class="row">
+    <div class="col-md-12">
+        <table id="products" class="table table-dark">
+            <thead>
+                <tr>
+                    <th scope="col">Invoice ID</th>
+                    <th scope="col">Invoice Date</th>
+                    <th scope="col">Customer Name</th>
+                    <th scope="col">Product Total</th>
+                    <th scope="col">Tax</th>
+                    <th scope="col">Shipping</th>
+                    <th scope="col">Total</th>
+                </tr>
+            </thead>
+            <tbody>
+                @foreach (var inv in Model)
+                {
+                <tr>
+                    <td scope="row">@inv.InvoiceID</td>
+                    <td scope="row">@inv.InvoiceDate.ToString("yyyy-MM-dd")</td>
+                    <td scope="row">
+                        <a href="/Customer/Index/@inv.CustomerID">
+                            @inv.Customer.Name
+                        </a>
+                    </td>
+                    <td scope="row">@inv.ProductTotal.ToString("c")</td>
+                    <td scope="row">@inv.SalesTax.ToString("c")</td>
+                    <td scope="row">@inv.Shipping.ToString("c")</td>
+                    <td scope="row">@inv.InvoiceTotal.ToString("c")</td>
+                    <td>
+                        @Html.ActionLink("Edit", "AddEditInvoice", "Invoice", new { id = inv.InvoiceID}, null) |
+                        @Html.ActionLink("Delete", "Delete", "Invoice", new { id = inv.InvoiceID}, null)
+                    </td>
+                </tr>
+                }
+            </tbody>
+        </table>
+    </div>
+</div>

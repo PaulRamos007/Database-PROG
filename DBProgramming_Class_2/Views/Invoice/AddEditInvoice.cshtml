@@ -1,0 +1,54 @@
+﻿@model DBProgramming_Class_2.Models.CombinedList
+
+<h2>Add/Edit Invoice</h2>
+
+@using (Html.BeginForm("AddEditInvoice", "Invoice", FormMethod.Post))
+{
+    @Html.HiddenFor(i => i.Invoices.InvoiceID);
+    @Html.HiddenFor(i => i.Invoices.CustomerID);
+
+    <div class="row">
+        <div class="col-md-6">
+            @Html.TextBoxFor(i => i.Invoices.InvoiceDate, new { @class = "form-control", @placeholder = "Date..." })
+        </div>
+        <div class="col-md-6">
+            @Html.TextBoxFor(i => i.Invoices.Customer.Name, new { @class = "form-control", @placeholder = "Name..." })
+        </div>
+        <div class="col-md-6">
+            @Html.TextBoxFor(i => i.Invoices.ProductTotal, "{0:c}", new { @class = "form-control", @placeholder = "Price..." })
+        </div>
+        <div class="col-md-6">
+            @Html.TextBoxFor(i => i.Invoices.SalesTax, "{0:c}", new { @class = "form-control", @placeholder = "Tax..." })
+        </div>
+        <div class="col-md-6">
+            @Html.TextBoxFor(i => i.Invoices.Shipping, "{0:c}", new { @class = "form-control", @placeholder = "Shipping..." })
+        </div>
+        <div class="col-md-6">
+            @Html.TextBoxFor(i => i.Invoices.InvoiceTotal, "{0:c}", new { @class = "form-control", @placeholder = "Total..." })
+        </div>
+    </div>
+
+    <div class="row">
+        <div class="col-md-6">
+            @Html.TextBoxFor(i => i.Lines.InvoiceID, new { @class = "form-control", @placeholder = "ID..." })
+        </div>
+        <div class="col-md-6">
+            @Html.TextBoxFor(i => i.Lines.ProductCode, new { @class = "form-control", @placeholder = "CODE..." })
+        </div>
+        <div class="col-md-6">
+            @Html.TextBoxFor(i => i.Lines.UnitPrice, "{0:c}", new { @class = "form-control", @placeholder = "Price..." })
+        </div>
+        <div class="col-md-6">
+            @Html.TextBoxFor(i => i.Lines.Quantity, new { @class = "form-control", @placeholder = "Tax..." })
+        </div>
+        <div class="col-md-6">
+            @Html.TextBoxFor(i => i.Lines.ItemTotal, "{0:c}", new { @class = "form-control", @placeholder = "Shipping..." })
+        </div>
+    </div>
+
+    <div class="row">
+        <div class="col-md-12">
+            <input type="submit" value="Submit" />
+        </div>
+    </div>
+}

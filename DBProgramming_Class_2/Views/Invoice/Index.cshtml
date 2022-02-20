@@ -1,0 +1,54 @@
+﻿@model List<DBProgramming_Class_2.Models.Invoice>
+
+@{
+    ViewBag.Title = "Index";
+}
+
+<link rel="stylesheet" href="~/Content/main.css" />
+
+<div class="jumbotron">
+    <h1>Our Class Bookstore</h1>
+</div>
+
+<div class="row">
+    <div class="col-md-12">
+        <h2>List of Invoice</h2>
+    </div>
+</div>
+
+<div class="row">
+    <div class="col-md-12">
+        <table id="products" class="table table-dark">
+            <thead>
+                <tr>
+                    <th scope="col">Invoice ID</th>
+                    <th scope="col">Invoice Date</th>
+                    <th scope="col">Customer Name</th>
+                    <th scope="col">Product Total</th>
+                    <th scope="col">Tax</th>
+                    <th scope="col">Shipping</th>
+                    <th scope="col">Total</th>
+                </tr>
+            </thead>
+            <tbody>
+                @foreach (var invoice in Model)
+                {
+                <tr>
+                    <th scope="row">@invoice.InvoiceID</th>
+                    <th scope="row">@invoice.InvoiceDate.ToShortDateString()</th>
+                    <th scope="row">
+                        <a href="/Customer/Index/@invoice.CustomerID">
+                            @invoice.Customer.Name
+                        </a>  
+                    </th>
+                    <th scope="row">@invoice.ProductTotal.ToString("c")</th>
+                    <th scope="row">@invoice.SalesTax.ToString("c")</th>
+                    <th scope="row">@invoice.Shipping.ToString("c")</th>
+                    <th scope="row">@invoice.InvoiceTotal.ToString("c")</th>
+                </tr>
+                }
+            </tbody>
+        </table>
+    </div>
+</div>
+

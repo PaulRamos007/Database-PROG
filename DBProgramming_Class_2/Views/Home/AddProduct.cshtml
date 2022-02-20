@@ -1,0 +1,27 @@
+﻿@model  DBProgramming_Class_2.Models.Product
+
+@using (Html.BeginForm("AddProduct", "Home", FormMethod.Post))
+{
+
+    <div class="row">
+        <div class="col-md-6">
+            @Html.TextBoxFor(p => p.ProductCode, new { @class = "form-control", @placeholder = "Product Code..." })
+        </div>
+        <div class="col-md-6">
+            @Html.TextBoxFor(p => p.Description, new { @class = "form-control", @placeholder = "Description..." })
+        </div>
+        <div class="col-md-6">
+            @Html.TextBoxFor(p => p.UnitPrice, new { @class = "form-control", @placeholder = "Unit Price..." })
+        </div>
+        <div class="col-md-6">
+            @Html.TextBoxFor(p => p.OnHandQuantity, new { @class = "form-control", @placeholder = "Quantity..." })
+        </div>
+    </div>
+
+    <div class="row">
+        <div class="col-md-12">
+            <input type="submit" value="Submit" />
+        </div>
+    </div>
+
+}
