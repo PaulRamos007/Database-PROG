@@ -1,0 +1,42 @@
+﻿@model List<TechSupportWeb.Models.Product>
+
+@{
+    ViewBag.Title = "ProductList";
+}
+
+<div class="row">
+    <div class="col-md-12">
+        <h2>List of Products</h2>
+    </div>
+</div>
+
+<div class="row">
+    <div class="col-md-12">
+        <table id="products" class="table table-dark">
+            <thead>
+                <tr>
+                    <th scope="col">Product Code</th>
+                    <th scope="col">Product Name</th>
+                    <th scope="col">Product Version</th>
+                    <th scope="col">Release Date</th>
+                    <th scope="col">Actions</th>
+                </tr>
+            </thead>
+            <tbody>
+                @foreach (var product in Model)
+                {
+                    <tr>
+                        <th scope="row">@product.ProductCode</th>
+                        <td scope="row">@product.Name</td>
+                        <td scope="row">@product.Version</td>
+                        <td scope="row">@product.ReleaseDate</td>
+                        <td>
+                            @Html.ActionLink("Edit", "AddProduct", "Home") |
+                            @Html.ActionLink("Delete", "DeleteProduct", "Home")
+                        </td>
+                    </tr>
+                }
+            </tbody>
+        </table>
+    </div>
+</div>

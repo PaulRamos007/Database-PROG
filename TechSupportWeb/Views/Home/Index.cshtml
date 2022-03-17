@@ -1,0 +1,46 @@
+﻿@model List<TechSupportWeb.Models.Incident>
+
+@{
+    ViewBag.Title = "Home Page";
+}
+
+<div class="jumbotron">
+    <h1>Tech Support Application</h1>
+</div>
+
+<div class="row">
+    <div class="col-md-12">
+        <h2>Incidents</h2>
+    </div>
+</div>
+
+<div class="row">
+    <div class="col-md-12">
+        <table id="incidents" class="table table-dark">
+            <thead>
+                <tr>
+                    <th scope="col">Incident ID</th>
+                    <th scope="col">Customer Name</th>
+                    <th scope="col">Type of Incident</th>
+                    <th scope="col">Description</th>
+                    <th scope="col">Actions</th>
+                </tr>
+            </thead>
+            <tbody>
+                @foreach (var incident in Model)
+                {
+                    <tr>
+                        <th scope="row">@incident.IncidentID</th>
+                        <td scope="row">@incident.Customer.Name</td>
+                        <td scope="row">@incident.Title</td>
+                        <td scope="row">@incident.Description</td>
+                        <td>
+                            @Html.ActionLink("Edit", "AddIncident", "Home") |
+                            @Html.ActionLink("Delete", "DeleteIncident", "Home")
+                        </td>
+                    </tr>
+                }
+            </tbody>
+        </table>
+    </div>
+</div>
