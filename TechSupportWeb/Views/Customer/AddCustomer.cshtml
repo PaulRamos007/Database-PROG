@@ -1,0 +1,44 @@
+﻿@model  TechSupportWeb.Models.Customer
+
+@using (Html.BeginForm("AddCustomer", "Customer", FormMethod.Post))
+{
+    @Html.HiddenFor(c => c.CustomerID);
+
+<div class="row">
+    <div class="col-md-6">
+        <h5>Name</h5>
+        @Html.TextBoxFor(c => c.Name, new { @class = "form-control", @placeholder = "Name..." })
+    </div>
+    <div class="col-md-6">
+        <h5>Address</h5>
+        @Html.TextBoxFor(c => c.Address, new { @class = "form-control", @placeholder = "Address..." })
+    </div>
+    <div class="col-md-6">
+        <h5>City</h5>
+        @Html.TextBoxFor(c => c.City, new { @class = "form-control", @placeholder = "City..." })
+    </div>
+    <div class="col-md-6">
+        <h5>State</h5>
+        @Html.TextBoxFor(c => c.State, new { @class = "form-control", @placeholder = "State..." })
+    </div>
+    <div class="col-md-6">
+        <h5>ZipCode</h5>
+        @Html.TextBoxFor(c => c.ZipCode, new { @class = "form-control", @placeholder = "ZipCode..." })
+    </div>
+    <div class="col-md-6">
+        <h5>Phone</h5>
+        @Html.TextBoxFor(c => c.Phone, new { @class = "form-control", @placeholder = "Phone..." })
+    </div>
+    <div class="col-md-6">
+        <h5>Email</h5>
+        @Html.TextBoxFor(c => c.Email, new { @class = "form-control", @placeholder = "Email..." })
+    </div>
+</div>
+
+
+    <div class="row">
+        <div class="col-md-12">
+            <input type="submit" value="Submit" />
+        </div>
+    </div>
+}

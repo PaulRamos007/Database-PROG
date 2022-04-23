@@ -1,0 +1,30 @@
+﻿@model  TechSupportWeb.Models.Technician
+
+@using (Html.BeginForm("AddTech", "Technician", FormMethod.Post))
+{
+
+    <div class="row">
+        <div class="col-md-6">
+            <h5>Tech ID</h5>
+            @Html.TextBoxFor(t => t.TechID, new { @class = "form-control", @placeholder = "Tech ID..." })
+        </div>
+        <div class="col-md-6">
+            <h5>Tech Name</h5>
+            @Html.TextBoxFor(t => t.Name, new { @class = "form-control", @placeholder = "Name..." })
+        </div>
+        <div class="col-md-6">
+            <h5>Contact Email</h5>
+            @Html.TextBoxFor(t => t.Email, new { @class = "form-control", @placeholder = "Email..." })
+        </div>
+        <div class="col-md-6">
+            <h5>Phone Number</h5>
+            @Html.TextBoxFor(t => t.Phone, new { @class = "form-control", @placeholder = "Phone..." })
+        </div>
+    </div>
+
+    <div class="row">
+        <div class="col-md-12">
+            <input type="submit" value="Submit" />
+        </div>
+    </div>
+}

@@ -1,0 +1,27 @@
+﻿@model  TechSupportWeb.Models.Registration
+
+@using (Html.BeginForm("AddRegistration", "Registration", FormMethod.Post))
+{
+    @Html.HiddenFor(r => r.CustomerID);
+
+    <div class="row">
+        <div class="col-md-6">
+            <h5>Product Code</h5>
+            @Html.TextBoxFor(r => r.ProductCode, new { @class = "form-control", @placeholder = "Product Code..." })
+        </div>
+        <div class="col-md-6">
+            <h5>Customer Name</h5>
+            @Html.TextBoxFor(r => r.Customer.Name, new { @class = "form-control", @placeholder = "Customer Name..." })
+        </div>
+        <div class="col-md-6">
+            <h5>Registration Date</h5>
+            @Html.TextBoxFor(i => i.RegistrationDate, new { @class = "form-control", @placeholder = "Date..." })
+        </div>
+    </div>
+
+    <div class="row">
+        <div class="col-md-12">
+            <input type="submit" value="Submit" />
+        </div>
+    </div>
+}

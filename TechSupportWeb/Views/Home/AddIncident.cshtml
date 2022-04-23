@@ -1,0 +1,38 @@
+﻿@model  TechSupportWeb.Models.Incident
+
+@using (Html.BeginForm("AddIncident", "Home", FormMethod.Post))
+{
+    @Html.HiddenFor(i => i.IncidentID);
+    @Html.HiddenFor(i => i.CustomerID);
+    @Html.HiddenFor(i => i.ProductCode);
+
+<div class="row">
+    <div class="col-md-6">
+        <h5>Customer Name</h5>
+        @Html.TextBoxFor(i => i.Customer.Name, new { @class = "form-control", @placeholder = "Name..." })
+    </div>
+    <div class="col-md-6">
+        <h5>Type of Incident</h5>
+        @Html.TextBoxFor(i => i.Title, new { @class = "form-control", @placeholder = "Incident Type..." })
+    </div>
+    <div class="col-md-6">
+        <h5>Description</h5>
+        @Html.TextBoxFor(i => i.Description, new { @class = "form-control", @placeholder = "Description..." })
+    </div>
+    <div class="col-md-6">
+        <h5>Technician Name</h5>
+        @Html.TextBoxFor(i => i.Technician.Name, new { @class = "form-control", @placeholder = "Technician Name..." })
+    </div>
+    <div class="col-md-6">
+        <h5>Date Opened</h5>
+        @Html.TextBoxFor(i => i.DateOpened, new { @class = "form-control", @placeholder = "Date Opened..." })
+    </div>
+</div>
+
+
+<div class="row">
+    <div class="col-md-12">
+        <input type="submit" value="Submit" />
+    </div>
+</div>
+}

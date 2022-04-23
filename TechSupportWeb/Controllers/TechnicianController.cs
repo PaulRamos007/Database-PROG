@@ -9,53 +9,53 @@ using TechSupportWeb.Models;
 
 namespace TechSupportWeb.Controllers
 {
-    public class CustomerController : Controller
+    public class TechnicianController : Controller
     {
-        // GET: Customer
+        // GET: Technician
         public ActionResult Index(int id)
         {
             var context = new TechSupportEntities();
 
-            Customer customers = context.Customers.FirstOrDefault(x => x.CustomerID == id);
+            Technician technicians = context.Technicians.FirstOrDefault(x => x.TechID == id);
 
-            return View(customers);
+            return View(technicians);
         }
 
-        public ActionResult CustomersList(string searchTerm)
+        public ActionResult TechnicianList(string searchTerm)
         {
             var context = new TechSupportEntities();
 
-            List<Customer> customers = context.Customers.ToList();
+            List<Technician> technicians = context.Technicians.ToList();
 
             if (!string.IsNullOrWhiteSpace(searchTerm))
             {
-                customers = customers.Where(c => c.Name.IndexOf(searchTerm, StringComparison.CurrentCultureIgnoreCase) != -1).ToList();
+                technicians = technicians.Where(c => c.Name.IndexOf(searchTerm, StringComparison.CurrentCultureIgnoreCase) != -1).ToList();
             }
 
-            return View(customers);
+            return View(technicians);
         }
 
-        public ActionResult AddCustomer(int id = 0)
+        public ActionResult AddTech(int id = 0)
         {
             var context = new TechSupportEntities();
 
-            Customer customers = context.Customers.FirstOrDefault(x => x.CustomerID == id);
+            Technician technicians = context.Technicians.FirstOrDefault(x => x.TechID == id);
 
-            if (customers == null)
+            if (technicians == null)
             {
-                customers = new Customer();
+                technicians = new Technician();
             }
 
-            return View(customers);
+            return View(technicians);
         }
 
         [HttpPost]
-        public ActionResult AddCustomer(Customer customers)
+        public ActionResult AddTech(Technician technicians)
         {
             var context = new TechSupportEntities();
             try
             {
-                context.Customers.AddOrUpdate(customers);
+                context.Technicians.AddOrUpdate(technicians);
                 context.SaveChanges();
             }
             catch (Exception ex)
@@ -63,7 +63,7 @@ namespace TechSupportWeb.Controllers
                 //Display error message
                 MessageBox.Show(ex.ToString());
             }
-            return View(customers);
+            return View(technicians);
         }
     }
 }
